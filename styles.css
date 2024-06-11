@@ -1,0 +1,30 @@
+body {
+    background-color: #f8f9fa;
+}
+
+#game-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#feedback {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.option-btn {
+    margin: 5px;
+}
+
+/* Estilos personalizados */
+
+/* Estilo de las imágenes de las señales de tránsito */
+#traffic-sign {
+    max-width: 300px; /* Tamaño máximo de la imagen */
+}
+
+/* Espaciado superior para la retroalimentación */
+#feedback {
+    margin-top: 20px;
+}
