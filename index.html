@@ -8,13 +8,25 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center mt-5">¡STOP!</h1>
-        <div id="game-container" class="text-center mt-4">
+    <div class="container my-5 p-5 rounded shadow bg-light">
+        <!-- Menú de inicio -->
+        <div id="menu" class="text-center">
+            <img src="images/stop-logo.png" alt="Logo del juego" class="logo mb-3">
+            <h1 class="text-center mb-4">¡STOP!</h1>
+            <p class="text-justify"><strong>¡STOP!</strong> es un juego para testear nuestros conocimientos de señales de tráfico.</p>
+            <p class="text-justify"><strong>Las reglas son sencillas;</strong> identifica correctamente a qué corresponde la señal cuando veas la foto. Selecciona la opción correcta para ganar puntos.</p>
+            <p class="text-justify"><strong>Importancia de las señales de tránsito:</strong> Las señales de tránsito son cruciales para mantener el orden y la seguridad en las vías. Nos indican cómo comportarnos, cuándo detenernos y cómo prevenir accidentes. Conocerlas y respetarlas puede salvar vidas.</p>
+            <p class="text-justify"><strong>Autor:</strong> Luciana Souto</p>
+            <p class="text-justify"><strong>Repositorio en GitHub:</strong> <a href="https://github.com/soutolucianab/SOUTO-TPO-Juego.git" target="_blank">Ver en GitHub</a></p>
+            <button id="play-btn" class="btn btn-primary">JUGAR</button>
+            <button id="main-menu-btn" class="btn btn-secondary">Menú principal</button>
+        </div>
+        
+        <!-- Contenedor del juego -->
+        <div id="game-container" class="text-center mt-4 d-none">
             <h2>¿Cuánto sabes de señales de tránsito?</h2>
-            <img id="traffic-sign" src="images/stop-logo.png" alt="Señal de tránsito" class="img-fluid mb-3">
+            <img id="traffic-sign" src="" alt="Señal de tránsito" class="img-fluid mb-3">
             <div id="options" class="mb-3"></div>
-            <button id="start-btn" class="btn btn-primary">Comenzar</button>
         </div>
         <div id="feedback" class="text-center mt-4"></div>
     </div>
