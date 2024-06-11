@@ -1,5 +1,5 @@
 body {
-    background-color: #f8f9fa;
+    background-color: #dad9d3;
 }
 
 #game-container {
@@ -8,23 +8,37 @@ body {
     border-radius: 10px;
 }
 
-#feedback {
-    font-size: 18px;
-    font-weight: bold;
+/* Estilo para el contenedor principal */
+.container {
+    background-color: #f8f9fa;
 }
 
+/* Centrar contenido */
+.text-center {
+    text-align: center;
+}
+
+/* Justificar texto */
+.text-justify {
+    text-align: justify;
+}
+
+/* Espacio entre los botones de opción */
 .option-btn {
     margin: 5px;
 }
 
-/* Estilos personalizados */
-
 /* Estilo de las imágenes de las señales de tránsito */
 #traffic-sign {
-    max-width: 300px; /* Tamaño máximo de la imagen */
+    max-width: 300px; 
 }
 
-/* Espaciado superior para la retroalimentación */
-#feedback {
-    margin-top: 20px;
+/* Ocultar contenedor del juego al inicio */
+#game-container.d-none {
+    display: none;
+}
+
+/* Estilos para el logo */
+.logo {
+    width: 100px;
 }
