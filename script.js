@@ -1,4 +1,4 @@
-// Definir las señales de tránsito y sus opciones
+// Definir las señales de tránsito, imágenes y sus opciones
 const trafficSigns = [
     { 
         sign: "pare",
@@ -43,27 +43,32 @@ const trafficSigns = [
 ];
 
 // Variables globales
-let currentIndex = 0;
-let score = 0;
+let currentIndex = 0; // Índice de la pregunta actual
+let score = 0; // Puntuación del jugador
 
 // Función para iniciar el juego
 function startGame() {
     score = 0; // Reiniciar el scoring
-    document.getElementById('start-btn').style.display = 'none';
+    currentIndex = 0; // Reiniciar el índice de preguntas
+    document.getElementById('menu').style.display = 'none'; // Ocultar el menú
+    document.getElementById('game-container').classList.remove('d-none'); // Mostrar el contenedor del juego
+    document.getElementById('feedback').innerHTML = ''; // Limpiar el feedback anterior
     showTrafficSign();
 }
 
 // Función para mostrar la siguiente señal de tránsito
 function showTrafficSign() {
-    const signObj = trafficSigns[currentIndex];
-    const options = signObj.options;
+    const signObj = trafficSigns[currentIndex]; // Obtener el objeto de la señal actual
+    const options = signObj.options; // Obtener las opciones de respuesta
     const correctOption = options[0]; // La opción correcta siempre será la primera
-    const shuffledOptions = shuffleArray(options);
+    const shuffledOptions = shuffleArray(options); // Mezclar las opciones
 
+// Actualizar la imagen de la señal de tránsito
     document.getElementById('traffic-sign').src = signObj.image;
+ // Generar los botones de las opciones  
     document.getElementById('options').innerHTML = shuffledOptions.map(option => `<button class="btn btn-secondary option-btn" onclick="checkAnswer('${option}', '${correctOption}')">${option}</button>`).join('');
 
-    currentIndex++;
+    currentIndex++; // Incrementar el índice de la pregunta
 }
 
 // Función para comprobar la respuesta del jugador
@@ -86,9 +91,9 @@ function checkAnswer(selectedOption, correctOption) {
     });
 
     if (currentIndex < trafficSigns.length) {
-        showTrafficSign();
+        setTimeout(showTrafficSign, 1000); // Mostrar la siguiente señal después de 1 segundo
     } else {
-        endGame();
+        setTimeout(endGame, 1000); // Finalizar el juego después de 1 segundo
     }
 }
 
@@ -103,13 +108,21 @@ function endGame() {
         knowledgeMessage = "Parece que necesitas repasar más sobre señales de tránsito.";
     }
 
-    document.getElementById('feedback').innerHTML = `<p>Puntuación final: ${score}/${trafficSigns.length}</p><p>${knowledgeMessage}</p><button id="play-again-btn" class="btn btn-primary">Volver a jugar</button>`;
+    document.getElementById('feedback').innerHTML = `
+        <p>Puntuación final: ${score}/${trafficSigns.length}</p>
+        <p>${knowledgeMessage}</p>
+        <button id="play-again-btn" class="btn btn-primary">Volver a jugar</button>
+        <button id="final-menu-btn" class="btn btn-secondary">Menú principal</button>
+    `;
+
     document.getElementById('play-again-btn').addEventListener('click', resetGame);
+    document.getElementById('final-menu-btn').addEventListener('click', function() {
+        window.location.href = 'https://soutolucianab.github.io/TPO-Grupo7/';
+    });
 }
 
 // Función para reiniciar el juego
 function resetGame() {
-    currentIndex = 0;
     document.getElementById('feedback').innerHTML = ''; // Limpiar el contenido del feedback
     startGame();
 }
@@ -119,5 +132,8 @@ function shuffleArray(array) {
     return array.sort(() => Math.random() - 0.5);
 }
 
-// Event Listener para el botón de inicio
-document.getElementById('start-btn').addEventListener('click', startGame);
+// Event Listener para el botón de JUGAR
+document.getElementById('play-btn').addEventListener('click', startGame);
+
+// Event Listener para el botón de menú principal en el menú de inicio
+document.getElement
